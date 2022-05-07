@@ -1,0 +1,6 @@
+{
+  "env": {
+    "url": "http://localhost:3000",
+    "url-api": "http://localhost:4000/"
+  }
+}
