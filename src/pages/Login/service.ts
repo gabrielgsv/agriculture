@@ -14,3 +14,7 @@ export function login(email: string, password: string, navigate: Function) {
       throw err;
     });
 }
+
+export function logout() {
+  sessionStorage.removeItem(Auth);
+}
