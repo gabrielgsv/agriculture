@@ -1,10 +1,13 @@
-import React from "react";
+import { Container } from "../../components/Layout/Container";
+import { Title } from "../../components/Layout/Title";
+import ModalForm from "./ModalForm";
 
 const Producer = () => {
   return (
-    <>
-      <h1>Producer</h1>
-    </>
+    <Container width="100%">
+      <Title>Produtor Rural</Title>
+      <ModalForm />
+    </Container>
   );
 };
 
