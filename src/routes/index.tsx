@@ -2,25 +2,14 @@ import React from "react";
 import {
   Routes as RoutesContainer,
   Route,
-  useLocation,
-  Navigate,
 } from "react-router-dom";
-import { Auth } from "../config/storage";
-import Home from "../pages/Home";
+
+import RequireAuth from "./RequireAuth";
+import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
+import Producer from "../pages/Producer";
 
 const Routes = () => {
-  function RequireAuth({ children }: { children: JSX.Element }) {
-    let auth = sessionStorage.getItem(Auth);
-    let location = useLocation();
-
-    if (!auth) {
-      // Redirect them to the /login page
-      return <Navigate to="/login" state={{ from: location }} replace />;
-    }
-
-    return children;
-  }
 
   return (
     <>
@@ -30,7 +19,15 @@ const Routes = () => {
           path="/"
           element={
             <RequireAuth>
-              <Home />
+              <Dashboard />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/producer"
+          element={
+            <RequireAuth>
+              <Producer />
             </RequireAuth>
           }
         />
