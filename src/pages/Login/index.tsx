@@ -3,9 +3,10 @@ import { animation, textStyled } from './style'
 import Lottie from 'react-lottie-player';
 
 import animationPlant from '../../assets/animations/plant.json'
-import { Container } from '../../components/Container';
+import { Container } from '../../components/Layout/Container';
 import FormLogin from './FormLogin';
 import { logout } from './service';
+import { Card } from '../../components/Layout/Card';
 
 const Login = () => {
   useEffect(() => {
@@ -13,8 +14,8 @@ const Login = () => {
   }, [])
 
   return (
-    <>
-      <Container width='100%' height='100vh'>
+    <Container width='100%' height='100vh'>
+      <Card column>
         <Lottie
           animationData={animationPlant}
           play
@@ -27,8 +28,8 @@ const Login = () => {
         <Container width='400px' height='300px'>
           <FormLogin />
         </Container>
-      </Container>
-    </>
+      </Card>
+    </Container>
   );
 };
 

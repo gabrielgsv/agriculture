@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 
 export const animation = css`
   width: 200px;
-  margin-bottom: 40px;
+  margin: 40px 0;
 `;
 
 export const marginFormElements = css`

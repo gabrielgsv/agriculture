@@ -1,1 +1,1 @@
-export const Auth = btoa('Authorization');
+export const Auth = btoa('Token');

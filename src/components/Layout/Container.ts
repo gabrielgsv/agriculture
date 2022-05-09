@@ -12,7 +12,6 @@ export const Container = styled.div<Partial<Props>>`
   flex-direction: column;
   width: ${props => props.width};
   height: ${props => props.height};
-  /* background-color: #fafafa; */
   padding: 0px;
   margin: 0px;
   border: 0px;
