@@ -1,10 +1,15 @@
-import { Button, useDisclosure } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { BsPlusLg } from "react-icons/bs";
 import Modal from "../../../components/Modal";
 import FormContainer from "./FormContainer";
 
-const ModalForm = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+interface typeProps {
+  isOpen: boolean,
+  onOpen: () => void,
+  onClose: () => void,
+}
+
+const ModalForm = ({ isOpen, onOpen, onClose, }: typeProps) => {
 
   return (
     <>
@@ -12,6 +17,8 @@ const ModalForm = () => {
         colorScheme="teal"
         leftIcon={<BsPlusLg />}
         onClick={onOpen}
+        alignSelf="flex-end"
+        marginRight={20}
       >
         Adicionar
       </Button>
