@@ -1,4 +1,4 @@
-import { Button, FormControl, Grid, ModalFooter, useToast } from "@chakra-ui/react";
+import { Button, Flex, FormControl, Grid, ModalFooter, useToast } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 
 import { useEffect, useState } from "react";
@@ -68,7 +68,7 @@ const FormContainer = ({ onClose }: typeProps) => {
         }
       >
         <FormControl isInvalid={isSubmitted && !isValid}>
-          <Grid templateColumns='repeat(2, 1fr)' gap={2}>
+          <Grid templateColumns='repeat(2, 1fr)' columnGap={2} rowGap={5}>
             <PersonalForm
               setValue={setValue}
               register={register}
@@ -90,9 +90,11 @@ const FormContainer = ({ onClose }: typeProps) => {
             />
           </Grid>
 
-          <CropsPlantedForm
-            setValue={setValue}
-          />
+          <Flex justify='center' marginTop={5}>
+            <CropsPlantedForm
+              setValue={setValue}
+            />
+          </Flex>
 
           <ModalFooter marginTop={50}>
             <Button type='submit' mr={3} colorScheme='teal'>

@@ -14,7 +14,7 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
   return (
     <>
       <FormLabel>
-        Área total em hectares da fazenda
+        Área em hectares da fazenda
         <Controller
           name="totalHectares"
           control={control}
