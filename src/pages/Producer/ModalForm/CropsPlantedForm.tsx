@@ -1,18 +1,22 @@
 import { Checkbox, CheckboxGroup, FormLabel, Grid, Stack } from "@chakra-ui/react"
-import { UseFormSetValue } from "react-hook-form"
+import { UseFormRegister, UseFormSetValue, UseFormWatch } from "react-hook-form"
 import { IFormInput } from "./FormContainer"
 
 interface typeProps {
   setValue: UseFormSetValue<IFormInput>
+  register: UseFormRegister<IFormInput>
+  watch: UseFormWatch<IFormInput>
 }
 
-const CropsPlantedForm = ({ setValue }: typeProps) => {
+const CropsPlantedForm = ({ setValue, register, watch }: typeProps) => {
   return (
     <FormLabel>
       Selecione as Culturas Plantadas:
       <CheckboxGroup
         colorScheme='teal'
         size='lg'
+        value={watch('cropsPlanted')}
+        {...register('cropsPlanted')}
         onChange={value => setValue('cropsPlanted', value)}
       >
         <Stack spacing={[1, 5]} direction={['column', 'row']}>
