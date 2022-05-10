@@ -1,4 +1,4 @@
-import { Button, Modal as ChakraModal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from '@chakra-ui/react'
+import { Modal as ChakraModal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from '@chakra-ui/react'
 
 interface typeProps {
   title: string,
@@ -17,13 +17,6 @@ const Modal = ({ title, isOpen, onClose, children }: typeProps) => {
         <ModalBody>
           {children}
         </ModalBody>
-
-        <ModalFooter>
-          <Button mr={3} colorScheme='teal'>
-            Salvar
-          </Button>
-          <Button onClick={onClose}>Cancelar</Button>
-        </ModalFooter>
       </ModalContent>
     </ChakraModal>
   );
