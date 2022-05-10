@@ -1,25 +1,29 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Flex, FormControl, Grid, ModalFooter, useToast } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 
 import { useEffect, useState } from "react";
-import { createProducer, getCities, validateCpfCnpj } from "./services";
+import { createProducer, getCities, updateProducer, validateCpfCnpj } from "./services";
 import PersonalForm from "./PersonalForm";
 import LocalityForm from "./LocalityForm";
 import PropertyForm from "./PropertyForm";
 import CropsPlantedForm from "./CropsPlantedForm";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { cleanEdit, getProducers } from "../../../store/actions/producer";
 
 export interface ICity {
   id: string,
   nome: string
 }
-
 export interface IFormInput {
+  id?: string;
   cpf: string;
   cnpj: string
   name: string;
   farmName: string;
   uf: string;
-  city: ICity;
+  city: string;
   totalHectares: string;
   arableHectares: string;
   vegetationArable: string;
@@ -32,7 +36,7 @@ interface typeProps {
 
 const FormContainer = ({ onClose }: typeProps) => {
   const [cities, setCities] = useState<ICity[]>([{ id: '', nome: '' }]);
-  const { register, setValue, watch, handleSubmit, control, formState: { errors, isValid, isSubmitted } } = useForm<IFormInput>({
+  const { register, setValue, watch, reset, handleSubmit, control, formState: { errors, isValid, isSubmitted } } = useForm<IFormInput>({
     defaultValues: {
       cpf: '',
       cnpj: '',
@@ -42,8 +46,26 @@ const FormContainer = ({ onClose }: typeProps) => {
       arableHectares: '',
       vegetationArable: '',
       cropsPlanted: [],
-    }
+    },
   })
+
+  const dispatch = useDispatch();
+
+  const editProducer: any = useSelector(
+    (state: any) => {
+      return state?.Producer?.editProducer && state?.Producer?.editProducer[0];
+    }
+  )
+
+
+  useEffect(() => {
+    if (editProducer) {
+      reset(editProducer)
+      setValue('cropsPlanted', editProducer.cropsPlanted)
+      setValue('city', editProducer.city)
+      setValue('uf', editProducer.uf)
+    }
+  }, [])
 
   const toast = useToast();
 
@@ -54,11 +76,14 @@ const FormContainer = ({ onClose }: typeProps) => {
   }, [watch('uf')])
 
   const onSubmit = (data: IFormInput) => {
-    validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
-      createProducer(data, toast, onClose);
+    if (data.id) {
+      validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
+        updateProducer(data, toast, onClose, dispatch);
+    } else {
+      validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
+        createProducer(data, toast, onClose, dispatch);
+    }
   };
-
-  console.log('form', watch());
 
   return (
     <>
@@ -80,6 +105,7 @@ const FormContainer = ({ onClose }: typeProps) => {
               register={register}
               errors={errors}
               cities={cities}
+              watch={watch}
             />
 
             <PropertyForm
@@ -93,6 +119,8 @@ const FormContainer = ({ onClose }: typeProps) => {
           <Flex justify='center' marginTop={5}>
             <CropsPlantedForm
               setValue={setValue}
+              register={register}
+              watch={watch}
             />
           </Flex>
 
@@ -100,7 +128,12 @@ const FormContainer = ({ onClose }: typeProps) => {
             <Button type='submit' mr={3} colorScheme='teal'>
               Salvar
             </Button>
-            <Button onClick={onClose}>Cancelar</Button>
+            <Button onClick={() => {
+              dispatch<any>(cleanEdit())
+              onClose()
+            }}>
+              Cancelar
+            </Button>
           </ModalFooter>
         </FormControl>
       </form>
