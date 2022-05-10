@@ -2,6 +2,8 @@ import axios from "axios";
 import api from "../../../services/api";
 import { IFormInput } from './FormContainer'
 import { cpf as cpfValidator, cnpj as cnpjValidator } from 'cpf-cnpj-validator'
+import { Dispatch } from "react";
+import { cleanEdit, getProducers } from "../../../store/actions/producer";
 
 interface IBGECityResponse {
   id: string,
@@ -20,22 +22,57 @@ export function getCities(uf: string, setCities: (cities: any) => void) {
     });
 }
 
-export function createProducer(data: IFormInput, toast: any, onClose: () => void) {
+export function createProducer(
+  data: IFormInput,
+  toast: any,
+  onClose: () => void,
+  dispatch: Dispatch<any>,
+) {
   api.post('/producer', data)
     .then(data => {
-      console.log('data', data)
       toast({
         title: 'Cadastro realizado com sucesso!',
         status: 'success',
         duration: 9000,
         isClosable: true,
       })
+      dispatch(getProducers())
       onClose()
     })
     .catch(err => {
       console.error('err', err)
       toast({
         title: 'Ocorreu um erro ao realizar o cadastro!',
+        description: err.response.data?.error,
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
+    })
+}
+
+export function updateProducer(
+  data: IFormInput,
+  toast: any,
+  onClose: () => void,
+  dispatch: Dispatch<any>,
+) {
+  api.put(`/producer/${data.id}`, data)
+    .then(data => {
+      toast({
+        title: 'Edição feita com sucesso!',
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+      dispatch(getProducers())
+      dispatch(cleanEdit())
+      onClose()
+    })
+    .catch(err => {
+      console.error('err', err)
+      toast({
+        title: 'Ocorreu um erro ao realizar a edição!',
         description: err.response.data?.error,
         status: 'error',
         duration: 9000,
