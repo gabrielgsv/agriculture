@@ -1,7 +1,7 @@
 import { Button, useDisclosure } from "@chakra-ui/react";
 import { BsPlusLg } from "react-icons/bs";
 import Modal from "../../../components/Modal";
-import FormProducer from "./FormProducer";
+import FormContainer from "./FormContainer";
 
 const ModalForm = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -17,7 +17,7 @@ const ModalForm = () => {
       </Button>
 
       <Modal title="Adicionar Produtor Rural" isOpen={isOpen} onClose={onClose}>
-        <FormProducer />
+        <FormContainer onClose={onClose} />
       </Modal>
     </>
   );
