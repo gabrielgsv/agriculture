@@ -3,7 +3,7 @@ import api from "../../../services/api";
 import { IFormInput } from './FormContainer'
 import { cpf as cpfValidator, cnpj as cnpjValidator } from 'cpf-cnpj-validator'
 import { Dispatch } from "react";
-import { cleanEdit, getProducers } from "../../../store/actions/producer";
+import { getProducers } from "../../../store/actions/producer";
 
 interface IBGECityResponse {
   id: string,
@@ -20,65 +20,6 @@ export function getCities(uf: string, setCities: (cities: any) => void) {
 
       setCities(cities);
     });
-}
-
-export function createProducer(
-  data: IFormInput,
-  toast: any,
-  onClose: () => void,
-  dispatch: Dispatch<any>,
-) {
-  api.post('/producer', data)
-    .then(data => {
-      toast({
-        title: 'Cadastro realizado com sucesso!',
-        status: 'success',
-        duration: 9000,
-        isClosable: true,
-      })
-      dispatch(getProducers())
-      onClose()
-    })
-    .catch(err => {
-      console.error('err', err)
-      toast({
-        title: 'Ocorreu um erro ao realizar o cadastro!',
-        description: err.response.data?.error,
-        status: 'error',
-        duration: 9000,
-        isClosable: true,
-      })
-    })
-}
-
-export function updateProducer(
-  data: IFormInput,
-  toast: any,
-  onClose: () => void,
-  dispatch: Dispatch<any>,
-) {
-  api.put(`/producer/${data.id}`, data)
-    .then(data => {
-      toast({
-        title: 'Edição feita com sucesso!',
-        status: 'success',
-        duration: 9000,
-        isClosable: true,
-      })
-      dispatch(getProducers())
-      dispatch(cleanEdit())
-      onClose()
-    })
-    .catch(err => {
-      console.error('err', err)
-      toast({
-        title: 'Ocorreu um erro ao realizar a edição!',
-        description: err.response.data?.error,
-        status: 'error',
-        duration: 9000,
-        isClosable: true,
-      })
-    })
 }
 
 export function validateCpfCnpj(cpf: string, cnpj: string, toast: any) {
@@ -110,4 +51,118 @@ export function validateCpfCnpj(cpf: string, cnpj: string, toast: any) {
     })
     return false
   }
+}
+
+export function validateArea(
+  totalHectares: string,
+  arableHectares: string,
+  vegetationArable: string,
+  toast: any
+) {
+  const sum = Number(arableHectares) + Number(vegetationArable)
+  if (sum <= Number(totalHectares)) {
+    return true
+  } else {
+    toast({
+      title: 'Área total não pode ser menor que a área arável!',
+      description: 'A soma de área agrícultável e vegetação não deve ser maior que a área total da fazenda!',
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+    })
+    return false
+  }
+}
+
+export function createProducer(
+  data: IFormInput,
+  toast: any,
+  onClose: () => void,
+  dispatch: Dispatch<any>,
+) {
+  const isValid = validateArea(data.totalHectares, data.arableHectares, data.vegetationArable, toast)
+  if (isValid) {
+    api.post('/producer', data)
+      .then(data => {
+        toast({
+          title: 'Cadastro realizado com sucesso!',
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+        dispatch(getProducers())
+        onClose()
+      })
+      .catch(err => {
+        console.error('err', err)
+        toast({
+          title: 'Ocorreu um erro ao realizar o cadastro!',
+          description: err.response.data?.error,
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        })
+      })
+  }
+}
+
+export function updateProducer(
+  data: IFormInput,
+  toast: any,
+  onClose: () => void,
+  dispatch: Dispatch<any>,
+) {
+  const isValid = validateArea(data.totalHectares, data.arableHectares, data.vegetationArable, toast)
+  if (isValid) {
+    api.put(`/producer/${data.id}`, data)
+      .then(data => {
+        toast({
+          title: 'Edição feita com sucesso!',
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+        dispatch(getProducers())
+        onClose()
+      })
+      .catch(err => {
+        console.error('err', err)
+        toast({
+          title: 'Ocorreu um erro ao realizar a edição!',
+          description: err.response.data?.error,
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        })
+      })
+  }
+}
+
+export function deleteProducer(
+  id: string,
+  toast: any,
+  onClose: () => void,
+  dispatch: Dispatch<any>
+) {
+  api.delete(`/producer/${id}`)
+    .then(data => {
+      toast({
+        title: 'Deletado com sucesso!',
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+      dispatch(getProducers())
+      onClose()
+    })
+    .catch(err => {
+      console.error('err', err)
+      toast({
+        title: 'Ocorreu um erro ao deletar!',
+        description: err.response.data?.error,
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
+    })
 }
