@@ -14,11 +14,12 @@ const ModalForm = ({ isOpen, onOpen, onClose, }: typeProps) => {
   return (
     <>
       <Button
+        id='buttonAddProducer'
         colorScheme="teal"
         leftIcon={<BsPlusLg />}
         onClick={onOpen}
         alignSelf="flex-end"
-        marginRight={20}
+        marginRight='3%'
       >
         Adicionar
       </Button>
