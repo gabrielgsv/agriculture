@@ -21,7 +21,7 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
           render={({ field }) => (
             <Input
               {...field}
-              id='totalHectares'
+              id='totalHectaresInput'
               type='text'
               as={Cleave}
               {...register('totalHectares', { required: 'Digite o total de hectares' })}
@@ -46,7 +46,7 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
           render={({ field }) => (
             <Input
               {...field}
-              id='arableHectares'
+              id='arableHectaresInput'
               type='text'
               as={Cleave}
               {...register('arableHectares', { required: 'Digite a área agricultável' })}
@@ -71,7 +71,7 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
           render={({ field }) => (
             <Input
               {...field}
-              id='vegetationArable'
+              id='vegetationArableInput'
               type='text'
               as={Cleave}
               {...register('vegetationArable', { required: 'Digite a área de vegetação' })}

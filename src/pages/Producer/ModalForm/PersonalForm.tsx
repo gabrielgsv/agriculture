@@ -21,7 +21,7 @@ const PersonalForm = ({ control, setValue, register, errors }: typeProps) => {
           render={({ field }) => (
             <Input
               {...field}
-              id='cpf'
+              id='cpfInput'
               type='text'
               as={Cleave}
               onChange={e => {
@@ -47,7 +47,7 @@ const PersonalForm = ({ control, setValue, register, errors }: typeProps) => {
           render={({ field }) => (
             <Input
               {...field}
-              id='cnpj'
+              id='cnpjInput'
               type='text'
               as={Cleave}
               onChange={(e) => {
@@ -68,7 +68,7 @@ const PersonalForm = ({ control, setValue, register, errors }: typeProps) => {
       <FormLabel>
         Nome do Produtor
         <Input
-          id='name'
+          id='nameInput'
           type='name'
           maxLength={100}
           {...register('name', { required: 'Digite o nome' })}
