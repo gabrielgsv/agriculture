@@ -10,7 +10,7 @@ import PropertyForm from "./PropertyForm";
 import CropsPlantedForm from "./CropsPlantedForm";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { cleanEdit, getProducers } from "../../../store/actions/producer";
+import DeleteAlert from "./DeleteAlert";
 
 export interface ICity {
   id: string,
@@ -120,16 +120,23 @@ const FormContainer = ({ onClose }: typeProps) => {
             <CropsPlantedForm
               setValue={setValue}
               register={register}
-              watch={watch}
+              cropsPlanted={watch('cropsPlanted')}
             />
           </Flex>
 
           <ModalFooter marginTop={50}>
-            <Button type='submit' mr={3} colorScheme='teal'>
+            {watch('id') &&
+              (
+                <DeleteAlert
+                  id={watch('id')}
+                  toast={toast}
+                  onClose={onClose}
+                />
+              )}
+            <Button type='submit' mr={3} colorScheme='teal' id='saveButton'>
               Salvar
             </Button>
-            <Button onClick={() => {
-              dispatch<any>(cleanEdit())
+            <Button id='cancelButton' onClick={() => {
               onClose()
             }}>
               Cancelar
