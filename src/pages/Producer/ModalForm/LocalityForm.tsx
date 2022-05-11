@@ -16,7 +16,7 @@ const LocalityForm = ({ register, errors, cities, watch }: typeProps) => {
       <FormLabel>
         Nome Da Fazenda
         <Input
-          id='farmName'
+          id='farmNameInput'
           type='farmName'
           maxLength={100}
           {...register('farmName', { required: 'Digite a senha' })}
@@ -27,6 +27,7 @@ const LocalityForm = ({ register, errors, cities, watch }: typeProps) => {
       <FormLabel>
         UF
         <Select
+          id='ufInput'
           {...register('uf', { required: 'Selecione a UF' })}
           value={watch('uf')}
         >
@@ -39,6 +40,7 @@ const LocalityForm = ({ register, errors, cities, watch }: typeProps) => {
       <FormLabel>
         Cidade
         <Select
+          id='cityInput'
           {...register('city', { required: 'Selecione a Cidade' })}
           placeholder='Selecione a Cidade'
           value={watch('city')}
