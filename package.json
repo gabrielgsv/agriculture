@@ -3,26 +3,42 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/react": "^1.8.8",
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/styled-components": "^5.1.25",
     "axios": "^0.27.2",
     "chart.js": "^3.7.1",
+    "cleave.js": "^1.6.0",
+    "cpf-cnpj-validator": "^1.0.3",
+    "framer-motion": "^6",
+    "gridjs": "^5.0.2",
+    "gridjs-react": "^5.0.2",
     "randomcolor": "^0.6.2",
     "react": "^18.1.0",
     "react-chartjs-2": "^4.1.0",
     "react-dom": "^18.1.0",
+    "react-hook-form": "^7.30.0",
+    "react-icons": "^4.3.1",
+    "react-lottie-player": "^1.4.3",
+    "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "styled-components": "^5.3.5",
+    "redux": "4.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -41,5 +57,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "^3.9.12",
+    "@types/cleave.js": "^1.4.6",
+    "@types/react-redux": "^7.1.24",
+    "@types/redux": "^3.6.0",
+    "@types/redux-thunk": "^2.1.0",
+    "cypress": "^9.6.0"
   }
 }
