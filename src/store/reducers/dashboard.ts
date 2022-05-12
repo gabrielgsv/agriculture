@@ -1,4 +1,4 @@
-import { DashboardAction, DashboardState } from "../types/dashboard"
+import { DashboardAction, DashboardState } from '../types/dashboard'
 
 const dashboard = (
   state: any = {},

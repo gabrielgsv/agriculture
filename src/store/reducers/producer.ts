@@ -1,4 +1,4 @@
-import { ProducerAction, ProducerState } from "../types/producer"
+import { ProducerAction, ProducerState } from '../types/producer'
 
 const producer = (
   state: ProducerState = {},

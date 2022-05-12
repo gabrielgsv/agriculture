@@ -1,6 +1,6 @@
-import { FormErrorMessage, FormLabel, Input, Select } from "@chakra-ui/react"
-import { UseFormRegister, UseFormWatch } from "react-hook-form"
-import { ICity, IFormInput } from "./FormContainer"
+import { FormErrorMessage, FormLabel, Input, Select } from '@chakra-ui/react'
+import { UseFormRegister, UseFormWatch } from 'react-hook-form'
+import { ICity, IFormInput } from './FormContainer'
 import ufs from '../../../assets/ufs.json';
 
 interface typeProps {

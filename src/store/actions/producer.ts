@@ -1,5 +1,5 @@
-import api from "../../services/api"
-import { DispatchGetEditType, DispatchType } from "../types/producer"
+import api from '../../services/api'
+import { DispatchGetEditType, DispatchType } from '../types/producer'
 
 export function getProducers() {
   return function (dispatch: DispatchType) {

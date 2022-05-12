@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import { Button, FormLabel, Input, FormErrorMessage, FormControl } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 import { login } from './service';
 import { useNavigate } from 'react-router-dom';
 
 import { Container } from '../../components/Layout/Container';
-import { marginFormElements } from "./style";
+import { marginFormElements } from './style';
 
 interface IFormInput {
   email: string;
@@ -35,10 +35,10 @@ const FormLogin = () => {
                 id='email'
                 type='email'
                 {...register('email', {
-                  required: "Digite o email",
+                  required: 'Digite o email',
                   pattern: {
                     value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                    message: "Email inválido"
+                    message: 'Email inválido'
                   }
                 })}
               />

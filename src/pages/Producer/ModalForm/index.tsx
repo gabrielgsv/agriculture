@@ -1,7 +1,7 @@
-import { Button } from "@chakra-ui/react";
-import { BsPlusLg } from "react-icons/bs";
-import Modal from "../../../components/Modal";
-import FormContainer from "./FormContainer";
+import { Button } from '@chakra-ui/react';
+import { BsPlusLg } from 'react-icons/bs';
+import Modal from '../../../components/Modal';
+import FormContainer from './FormContainer';
 
 interface typeProps {
   isOpen: boolean,
@@ -15,16 +15,16 @@ const ModalForm = ({ isOpen, onOpen, onClose, }: typeProps) => {
     <>
       <Button
         id='buttonAddProducer'
-        colorScheme="teal"
+        colorScheme='teal'
         leftIcon={<BsPlusLg />}
         onClick={onOpen}
-        alignSelf="flex-end"
+        alignSelf='flex-end'
         marginRight='3%'
       >
         Adicionar
       </Button>
 
-      <Modal title="Adicionar Produtor Rural" isOpen={isOpen} onClose={onClose}>
+      <Modal title='Adicionar Produtor Rural' isOpen={isOpen} onClose={onClose}>
         <FormContainer onClose={onClose} />
       </Modal>
     </>
