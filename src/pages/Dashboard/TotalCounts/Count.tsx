@@ -9,9 +9,9 @@ interface IProps {
 const Count = ({ name, number }: IProps) => {
 
   return (
-    <Card width='300px' height="200px" column={true} margin='10px'>
-      <p>{name}</p>
-      <Text fontSize="40pt">{number}</Text>
+    <Card width='300px' height='200px' column={true} margin='10px'>
+      <Text>{name}</Text>
+      <Text fontSize='40pt'>{number}</Text>
     </Card>
   );
 }
