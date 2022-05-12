@@ -1,12 +1,12 @@
-import React from "react";
-import { Box, BoxProps, CloseButton, Flex, useColorModeValue } from "@chakra-ui/react";
-import { IconType } from "react-icons";
-import { FiPieChart, FiUser, FiXCircle } from "react-icons/fi";
-import NavItem from "./NavItem";
-import Lottie from "react-lottie-player";
+import React from 'react';
+import { Box, BoxProps, CloseButton, Flex, useColorModeValue } from '@chakra-ui/react';
+import { IconType } from 'react-icons';
+import { FiPieChart, FiUser, FiXCircle } from 'react-icons/fi';
+import NavItem from './NavItem';
+import Lottie from 'react-lottie-player';
 
-import animationPlant from "../../assets/animations/plant.json";
-import { animation } from "./style";
+import animationPlant from '../../assets/animations/plant.json';
+import { animation } from './style';
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
@@ -27,13 +27,13 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
     <>
       <Box
         bg={useColorModeValue('white', 'gray.900')}
-        borderRight="1px"
+        borderRight='1px'
         borderRightColor={useColorModeValue('gray.200', 'gray.700')}
         w={{ base: 'full', md: 60 }}
-        pos="fixed"
-        h="100vh"
+        pos='fixed'
+        h='100vh'
         {...rest}>
-        <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+        <Flex h='20' alignItems='center' mx='8' justifyContent='space-between'>
           <Lottie
             animationData={animationPlant}
             play
@@ -52,7 +52,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             ))}
           </Flex>
           <Box bg='gray.200' h='140px'>
-            <NavItem icon={FiXCircle} url="/login">
+            <NavItem icon={FiXCircle} url='/login'>
               Sair
             </NavItem>
           </Box>
