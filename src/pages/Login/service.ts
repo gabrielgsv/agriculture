@@ -1,5 +1,5 @@
-import { Auth } from "../../config/storage";
-import api from "../../services/api";
+import { Auth } from '../../config/storage';
+import api from '../../services/api';
 
 export function login(email: string, password: string, navigate: Function) {
   return api.post('login', {

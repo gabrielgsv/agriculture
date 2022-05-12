@@ -1,18 +1,18 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { Auth } from "../config/storage";
+import { Auth } from '../config/storage';
 
 const api = axios.create({
   headers: {
-    accept: "*/*",
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
+    accept: '*/*',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
   baseURL: process.env.REACT_APP_API,
 });
 
 api.interceptors.request.use((config) => {
-  const token = sessionStorage.getItem(Auth || "")
+  const token = sessionStorage.getItem(Auth || '')
 
   const headers = { ...config.headers };
 

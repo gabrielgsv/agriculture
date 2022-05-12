@@ -1,16 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Button, Flex, FormControl, Grid, ModalFooter, useToast } from "@chakra-ui/react";
-import { useForm } from "react-hook-form";
+import { Button, Flex, FormControl, Grid, ModalFooter, useToast } from '@chakra-ui/react';
+import { useForm } from 'react-hook-form';
 
-import { useEffect, useState } from "react";
-import { createProducer, getCities, updateProducer, validateCpfCnpj } from "./services";
-import PersonalForm from "./PersonalForm";
-import LocalityForm from "./LocalityForm";
-import PropertyForm from "./PropertyForm";
-import CropsPlantedForm from "./CropsPlantedForm";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import DeleteAlert from "./DeleteAlert";
+import { useEffect, useState } from 'react';
+import { createProducer, getCities, updateProducer, validateCpfCnpj } from './services';
+import PersonalForm from './PersonalForm';
+import LocalityForm from './LocalityForm';
+import PropertyForm from './PropertyForm';
+import CropsPlantedForm from './CropsPlantedForm';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import DeleteAlert from './DeleteAlert';
 
 export interface ICity {
   id: string,

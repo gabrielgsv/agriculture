@@ -1,6 +1,6 @@
-import { FormErrorMessage, FormLabel, Input, Select } from "@chakra-ui/react"
-import { UseFormRegister, UseFormWatch } from "react-hook-form"
-import { ICity, IFormInput } from "./FormContainer"
+import { FormErrorMessage, FormLabel, Input, Select } from '@chakra-ui/react'
+import { UseFormRegister, UseFormWatch } from 'react-hook-form'
+import { ICity, IFormInput } from './FormContainer'
 import ufs from '../../../assets/ufs.json';
 
 interface typeProps {
@@ -32,7 +32,7 @@ const LocalityForm = ({ register, errors, cities, watch }: typeProps) => {
           value={watch('uf')}
         >
           {ufs.map(uf => (
-            <option key={uf.id} value={uf.id}>{uf.sigla}</option>
+            <option key={uf.sigla} value={uf.sigla}>{uf.sigla}</option>
           ))}
         </Select>
       </FormLabel>

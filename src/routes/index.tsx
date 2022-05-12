@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 import {
   Routes as RoutesContainer,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import RequireAuth from "./RequireAuth";
-import Dashboard from "../pages/Dashboard";
-import Login from "../pages/Login";
-import Producer from "../pages/Producer";
+import RequireAuth from './RequireAuth';
+import Dashboard from '../pages/Dashboard';
+import Login from '../pages/Login';
+import Producer from '../pages/Producer';
 
 const Routes = () => {
 
   return (
     <>
       <RoutesContainer>
-        <Route path="/login" element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route
-          path="/"
+          path='/'
           element={
             <RequireAuth>
               <Dashboard />
@@ -24,7 +24,7 @@ const Routes = () => {
           }
         />
         <Route
-          path="/producer"
+          path='/producer'
           element={
             <RequireAuth>
               <Producer />

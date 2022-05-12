@@ -1,18 +1,22 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-export const Title = styled.h1`
+interface Props {
+  center: boolean;
+}
+
+export const Title = styled.h1 <Partial<Props>>`
   font-size: 1.5rem;
   font-weight: 500;
   margin: 0;
   padding: 0;
   text-align: center;
   line-height: 1.5;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin-bottom: 1rem;
   margin-top: 1rem;
   @media (min-width: 768px) {
     font-size: 2rem;
   }
   width: 100%;
-  text-align: left;
+  text-align: ${props => props.center ? 'center' : 'left'};
 `;
