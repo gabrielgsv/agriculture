@@ -1,9 +1,9 @@
-import axios from "axios";
-import api from "../../../services/api";
+import axios from 'axios';
+import api from '../../../services/api';
 import { IFormInput } from './FormContainer'
 import { cpf as cpfValidator, cnpj as cnpjValidator } from 'cpf-cnpj-validator'
-import { Dispatch } from "react";
-import { getProducers } from "../../../store/actions/producer";
+import { Dispatch } from 'react';
+import { getProducers } from '../../../store/actions/producer';
 
 interface IBGECityResponse {
   id: string,

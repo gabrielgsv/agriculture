@@ -1,7 +1,7 @@
-import { FormErrorMessage, FormLabel, Input } from "@chakra-ui/react"
-import { Control, Controller, UseFormRegister, UseFormSetValue } from "react-hook-form"
-import { IFormInput } from "./FormContainer"
-import Cleave from "cleave.js/react";
+import { FormErrorMessage, FormLabel, Input } from '@chakra-ui/react'
+import { Control, Controller, UseFormRegister, UseFormSetValue } from 'react-hook-form'
+import { IFormInput } from './FormContainer'
+import Cleave from 'cleave.js/react';
 
 interface typeProps {
   control: Control<IFormInput>
@@ -16,7 +16,7 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
       <FormLabel>
         Área em hectares da fazenda
         <Controller
-          name="totalHectares"
+          name='totalHectares'
           control={control}
           render={({ field }) => (
             <Input
@@ -41,7 +41,7 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
       <FormLabel>
         Área agricultável em hectares
         <Controller
-          name="arableHectares"
+          name='arableHectares'
           control={control}
           render={({ field }) => (
             <Input
@@ -66,7 +66,7 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
       <FormLabel>
         Área de vegetação em hectares
         <Controller
-          name="vegetationArable"
+          name='vegetationArable'
           control={control}
           render={({ field }) => (
             <Input

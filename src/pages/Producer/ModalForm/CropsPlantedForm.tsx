@@ -1,6 +1,6 @@
-import { Checkbox, CheckboxGroup, FormLabel, Grid, Stack } from "@chakra-ui/react"
-import { UseFormRegister, UseFormSetValue } from "react-hook-form"
-import { IFormInput } from "./FormContainer"
+import { Checkbox, CheckboxGroup, FormLabel, Grid, Stack } from '@chakra-ui/react'
+import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
+import { IFormInput } from './FormContainer'
 
 interface typeProps {
   setValue: UseFormSetValue<IFormInput>

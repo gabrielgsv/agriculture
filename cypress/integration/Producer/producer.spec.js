@@ -11,7 +11,7 @@ it('Should add a producer and show in search grid', function () {
   cy.get('#nameInput').type('Produtor Cypress');
   cy.get('#farmNameInput').clear();
   cy.get('#farmNameInput').type('Fazenda Cypress');
-  cy.get('#ufInput').select('33');
+  cy.get('#ufInput').select('RJ');
   cy.get('#cityInput').select('3304557');
   cy.get('#totalHectaresInput').type('10087');
   cy.get('#arableHectaresInput').type('5895');
@@ -36,7 +36,7 @@ it('Should update with other dada and check in serach grid', function () {
   cy.get('#nameInput').type('Produtor Cypress Editado');
   cy.get('#farmNameInput').clear();
   cy.get('#farmNameInput').type('Fazenda Cypress Editado');
-  cy.get('#ufInput').select('35');
+  cy.get('#ufInput').select('SP');
   cy.get('#cityInput').select('3501152');
   cy.get('#totalHectaresInput').clear();
   cy.get('#totalHectaresInput').type('10010');

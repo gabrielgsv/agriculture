@@ -1,7 +1,7 @@
-import { FormErrorMessage, FormLabel, Input } from "@chakra-ui/react"
-import Cleave from "cleave.js/react"
-import { Control, Controller, UseFormRegister, UseFormSetValue } from "react-hook-form"
-import { IFormInput } from "./FormContainer"
+import { FormErrorMessage, FormLabel, Input } from '@chakra-ui/react'
+import Cleave from 'cleave.js/react'
+import { Control, Controller, UseFormRegister, UseFormSetValue } from 'react-hook-form'
+import { IFormInput } from './FormContainer'
 
 interface typeProps {
   control: Control<IFormInput>
@@ -16,7 +16,7 @@ const PersonalForm = ({ control, setValue, register, errors }: typeProps) => {
       <FormLabel>
         CPF
         <Controller
-          name="cpf"
+          name='cpf'
           control={control}
           render={({ field }) => (
             <Input
@@ -42,7 +42,7 @@ const PersonalForm = ({ control, setValue, register, errors }: typeProps) => {
       <FormLabel>
         CNPJ
         <Controller
-          name="cnpj"
+          name='cnpj'
           control={control}
           render={({ field }) => (
             <Input
