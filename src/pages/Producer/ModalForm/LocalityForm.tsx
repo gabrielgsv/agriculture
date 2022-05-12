@@ -32,7 +32,7 @@ const LocalityForm = ({ register, errors, cities, watch }: typeProps) => {
           value={watch('uf')}
         >
           {ufs.map(uf => (
-            <option key={uf.id} value={uf.id}>{uf.sigla}</option>
+            <option key={uf.sigla} value={uf.sigla}>{uf.sigla}</option>
           ))}
         </Select>
       </FormLabel>

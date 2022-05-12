@@ -1,3 +1,4 @@
+import { Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Container } from "../../../components/Layout/Container";
@@ -20,10 +21,10 @@ const TotalCounts = () => {
   }, [selector])
 
   return (
-    <Container row={true}>
+    <Flex flexFlow='row wrap'>
       <Count name="Total de fazendas:" number={totalFarms} />
       <Count name="Total de área em hectares:" number={totalArea} />
-    </Container>
+    </Flex>
   );
 };
 
