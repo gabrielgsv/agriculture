@@ -1,10 +1,9 @@
-import { Flex } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Container } from "../../../components/Layout/Container";
-import { DashboardState } from "../../../store/types/dashboard";
-import { getTotalArea } from "../services";
-import Count from "./Count";
+import { Flex } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { DashboardState } from '../../../store/types/dashboard';
+import { getTotalArea } from '../services';
+import Count from './Count';
 
 const TotalCounts = () => {
   const [totalFarms, setTotalFarms] = useState(0);
@@ -21,9 +20,9 @@ const TotalCounts = () => {
   }, [selector])
 
   return (
-    <Flex flexFlow='row wrap'>
-      <Count name="Total de fazendas:" number={totalFarms} />
-      <Count name="Total de área em hectares:" number={totalArea} />
+    <Flex flexFlow='row wrap' justify='center' width='100%'>
+      <Count name='Total de fazendas:' number={totalFarms} />
+      <Count name='Total de área em hectares:' number={totalArea} />
     </Flex>
   );
 };
