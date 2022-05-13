@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FormLabel, Input, FormErrorMessage, FormControl } from '@chakra-ui/react'
+import { Button, FormLabel, Input, FormErrorMessage, FormControl, useToast } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 import { login } from './service';
 import { useNavigate } from 'react-router-dom';
@@ -13,8 +13,10 @@ interface IFormInput {
 }
 
 const FormLogin = () => {
+  const toast = useToast();
+
   const onSubmit = (data: IFormInput) => {
-    login(data.email, data.password, navigate)
+    login(data.email, data.password, navigate, toast);
   };
 
   const navigate = useNavigate();
