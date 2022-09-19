@@ -1,6 +1,6 @@
-Login Test
-email: user@email.com
-password: user123
+<p>Login Test</p>
+<p>email: user@email.com</p>
+<p>password: user123</p>
 
 # Getting Started with Create React App
 
