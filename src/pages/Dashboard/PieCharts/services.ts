@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 
 export function getUfData(data: any) {
-  if (data) {
+  if (data && data.length > 1) {
     const ufDataCount = data.reduce((previus: any, current: any) => {
       let uf = current.uf;
       if (!previus.hasOwnProperty(uf)) {
@@ -23,7 +23,7 @@ export function getUfData(data: any) {
 }
 
 export function getCropsData(data: any) {
-  if (data) {
+  if (data && data.length > 1) {
     const cropsDataCount = data.reduce((previus: any, current: any) => {
       let cropsPlantedGroup = current.plantation_crops;
       cropsPlantedGroup.forEach((plantation_crops: any) => {
@@ -48,7 +48,7 @@ export function getCropsData(data: any) {
 }
 
 export function getAreaData(data: any) {
-  if (data) {
+  if (data && data.length > 1) {
     const arable_hectares = data.reduce((previus: any, current: any) => {
       return previus + Number(current.arable_hectares);
     }, 0);
