@@ -25,12 +25,12 @@ export function getUfData(data: any) {
 export function getCropsData(data: any) {
   if (data) {
     const cropsDataCount = data.reduce((previus: any, current: any) => {
-      let cropsPlantedGroup = current.cropsPlanted;
-      cropsPlantedGroup.forEach((cropsPlanted: any) => {
-        if (!previus.hasOwnProperty(cropsPlanted)) {
-          previus[cropsPlanted] = 0;
+      let cropsPlantedGroup = current.plantation_crops;
+      cropsPlantedGroup.forEach((plantation_crops: any) => {
+        if (!previus.hasOwnProperty(plantation_crops)) {
+          previus[plantation_crops] = 0;
         }
-        previus[cropsPlanted]++;
+        previus[plantation_crops]++;
       })
       return previus;
     }, {});
@@ -49,17 +49,17 @@ export function getCropsData(data: any) {
 
 export function getAreaData(data: any) {
   if (data) {
-    const arableHectares = data.reduce((previus: any, current: any) => {
-      return previus + Number(current.arableHectares);
+    const arable_hectares = data.reduce((previus: any, current: any) => {
+      return previus + Number(current.arable_hectares);
     }, 0);
 
-    const vegetationArable = data.reduce((previus: any, current: any) => {
-      return previus + Number(current.vegetationArable);
+    const vegetation_arable = data.reduce((previus: any, current: any) => {
+      return previus + Number(current.vegetation_arable);
     }, 0);
 
     return [
-      { type: 'Área agricultável', value: arableHectares },
-      { type: 'Área de vegetação', value: vegetationArable }
+      { type: 'Área agricultável', value: arable_hectares },
+      { type: 'Área de vegetação', value: vegetation_arable }
     ];
   }
 }

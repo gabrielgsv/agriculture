@@ -16,12 +16,12 @@ const LocalityForm = ({ register, errors, cities, watch }: typeProps) => {
       <FormLabel>
         Nome Da Fazenda
         <Input
-          id='farmNameInput'
-          type='farmName'
+          id='farm_nameInput'
+          type='farm_name'
           maxLength={100}
-          {...register('farmName', { required: 'Digite a senha' })}
+          {...register('farm_name', { required: 'Digite a senha' })}
         />
-        {errors?.farmName?.message && <FormErrorMessage>{errors.farmName.message}</FormErrorMessage>}
+        {errors?.farm_name?.message && <FormErrorMessage>{errors.farm_name.message}</FormErrorMessage>}
       </FormLabel>
 
       <FormLabel>

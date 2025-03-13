@@ -5,19 +5,19 @@ import { IFormInput } from './FormContainer'
 interface typeProps {
   setValue: UseFormSetValue<IFormInput>
   register: UseFormRegister<IFormInput>
-  cropsPlanted: any[]
+  plantation_crops: any[]
 }
 
-const CropsPlantedForm = ({ setValue, register, cropsPlanted }: typeProps) => {
+const CropsPlantedForm = ({ setValue, register, plantation_crops }: typeProps) => {
   return (
     <FormLabel>
       Selecione as Culturas Plantadas:
       <CheckboxGroup
         colorScheme='teal'
         size='lg'
-        value={cropsPlanted}
-        {...register('cropsPlanted')}
-        onChange={value => setValue('cropsPlanted', value)}
+        value={plantation_crops}
+        {...register('plantation_crops')}
+        onChange={value => setValue('plantation_crops', value)}
       >
         <Stack spacing={[1, 5]} direction={['column', 'row']}>
           <Grid templateColumns='repeat(2, 1fr)' columnGap={8} rowGap={3}>

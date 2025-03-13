@@ -2,13 +2,13 @@ export interface IProducer {
   cpf?: string;
   cnpj?: string
   name?: string;
-  farmName?: string;
+  farm_name?: string;
   uf?: string;
   city?: string;
-  totalHectares?: string;
-  arableHectares?: string;
-  vegetationArable?: string;
-  cropsPlanted?: any[];
+  total_hectares?: string;
+  arable_hectares?: string;
+  vegetation_arable?: string;
+  plantation_crops?: any[];
 }
 
 export type ProducerState = {
