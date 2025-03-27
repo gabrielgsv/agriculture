@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes';
-import theme from './theme';
-import { Provider } from 'react-redux';
-import store from './store';
-import translation from './translation';
+import { ChakraProvider } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./routes";
+import store from "./store";
+import theme from "./theme";
+import translation from "./translation";
 
 function App() {
-
   useEffect(() => {
-    translation()
-  }, [])
+    translation();
+  }, []);
 
   return (
     <Provider store={store}>
