@@ -21,13 +21,13 @@ export interface IFormInput {
   cpf: string;
   cnpj: string
   name: string;
-  farmName: string;
+  farm_name: string;
   uf: string;
   city: string;
-  totalHectares: string;
-  arableHectares: string;
-  vegetationArable: string;
-  cropsPlanted: any[];
+  total_hectares: string;
+  arable_hectares: string;
+  vegetation_arable: string;
+  plantation_crops: any[];
 }
 
 interface typeProps {
@@ -41,11 +41,11 @@ const FormContainer = ({ onClose }: typeProps) => {
       cpf: '',
       cnpj: '',
       name: '',
-      farmName: '',
-      totalHectares: '',
-      arableHectares: '',
-      vegetationArable: '',
-      cropsPlanted: [],
+      farm_name: '',
+      total_hectares: '',
+      arable_hectares: '',
+      vegetation_arable: '',
+      plantation_crops: [],
     },
   })
 
@@ -61,7 +61,7 @@ const FormContainer = ({ onClose }: typeProps) => {
   useEffect(() => {
     if (editProducer) {
       reset(editProducer)
-      setValue('cropsPlanted', editProducer.cropsPlanted)
+      setValue('plantation_crops', editProducer.plantation_crops)
       setValue('city', editProducer.city)
       setValue('uf', editProducer.uf)
     }
@@ -120,7 +120,7 @@ const FormContainer = ({ onClose }: typeProps) => {
             <CropsPlantedForm
               setValue={setValue}
               register={register}
-              cropsPlanted={watch('cropsPlanted')}
+              plantation_crops={watch('plantation_crops')}
             />
           </Flex>
 

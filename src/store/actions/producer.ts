@@ -4,7 +4,7 @@ import { DispatchGetEditType, DispatchType } from '../types/producer'
 export function getProducers() {
   return function (dispatch: DispatchType) {
     api
-      .get(`producer`)
+      .get(`producers`)
       .then(res => {
         const result = res.data
         dispatch({
@@ -21,7 +21,7 @@ export function getProducers() {
 export function getEdit(idEdit: string) {
   return function (dispatch: DispatchGetEditType) {
     api
-      .get(`producer?id=${idEdit}`)
+      .get(`producers?id=${idEdit}`)
       .then(res => {
         const result = res.data
         dispatch({

@@ -54,13 +54,13 @@ export function validateCpfCnpj(cpf: string, cnpj: string, toast: any) {
 }
 
 export function validateArea(
-  totalHectares: string,
-  arableHectares: string,
-  vegetationArable: string,
+  total_hectares: string,
+  arable_hectares: string,
+  vegetation_arable: string,
   toast: any
 ) {
-  const sum = Number(arableHectares) + Number(vegetationArable)
-  if (sum <= Number(totalHectares)) {
+  const sum = Number(arable_hectares) + Number(vegetation_arable)
+  if (sum <= Number(total_hectares)) {
     return true
   } else {
     toast({
@@ -80,9 +80,9 @@ export function createProducer(
   onClose: () => void,
   dispatch: Dispatch<any>,
 ) {
-  const isValid = validateArea(data.totalHectares, data.arableHectares, data.vegetationArable, toast)
+  const isValid = validateArea(data.total_hectares, data.arable_hectares, data.vegetation_arable, toast)
   if (isValid) {
-    api.post('/producer', data)
+    api.post('/producers', data)
       .then(data => {
         toast({
           title: 'Cadastro realizado com sucesso!',
@@ -112,9 +112,9 @@ export function updateProducer(
   onClose: () => void,
   dispatch: Dispatch<any>,
 ) {
-  const isValid = validateArea(data.totalHectares, data.arableHectares, data.vegetationArable, toast)
+  const isValid = validateArea(data.total_hectares, data.arable_hectares, data.vegetation_arable, toast)
   if (isValid) {
-    api.put(`/producer/${data.id}`, data)
+    api.put(`/producers/${data.id}`, data)
       .then(data => {
         toast({
           title: 'Edição feita com sucesso!',
@@ -144,7 +144,7 @@ export function deleteProducer(
   onClose: () => void,
   dispatch: Dispatch<any>
 ) {
-  api.delete(`/producer/${id}`)
+  api.delete(`/producers/${id}`)
     .then(data => {
       toast({
         title: 'Deletado com sucesso!',
