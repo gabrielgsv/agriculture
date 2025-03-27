@@ -16,16 +16,16 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
       <FormLabel>
         Área em hectares da fazenda
         <Controller
-          name='totalHectares'
+          name='total_hectares'
           control={control}
           render={({ field }) => (
             <Input
               {...field}
-              id='totalHectaresInput'
+              id='total_hectaresInput'
               type='text'
               as={Cleave}
-              {...register('totalHectares', { required: 'Digite o total de hectares' })}
-              onChange={e => setValue('totalHectares', e.target.value)}
+              {...register('total_hectares', { required: 'Digite o total de hectares' })}
+              onChange={e => setValue('total_hectares', e.target.value)}
               options={{
                 delimiters: [],
                 blocks: [10],
@@ -35,22 +35,22 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
             />
           )}
         />
-        {errors?.totalHectares?.message && <FormErrorMessage>{errors.totalHectares.message}</FormErrorMessage>}
+        {errors?.total_hectares?.message && <FormErrorMessage>{errors.total_hectares.message}</FormErrorMessage>}
       </FormLabel>
 
       <FormLabel>
         Área agricultável em hectares
         <Controller
-          name='arableHectares'
+          name='arable_hectares'
           control={control}
           render={({ field }) => (
             <Input
               {...field}
-              id='arableHectaresInput'
+              id='arable_hectaresInput'
               type='text'
               as={Cleave}
-              {...register('arableHectares', { required: 'Digite a área agricultável' })}
-              onChange={e => setValue('arableHectares', e.target.value)}
+              {...register('arable_hectares', { required: 'Digite a área agricultável' })}
+              onChange={e => setValue('arable_hectares', e.target.value)}
               options={{
                 delimiters: [],
                 blocks: [10],
@@ -60,22 +60,22 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
             />
           )}
         />
-        {errors?.arableHectares?.message && <FormErrorMessage>{errors.arableHectares.message}</FormErrorMessage>}
+        {errors?.arable_hectares?.message && <FormErrorMessage>{errors.arable_hectares.message}</FormErrorMessage>}
       </FormLabel>
 
       <FormLabel>
         Área de vegetação em hectares
         <Controller
-          name='vegetationArable'
+          name='vegetation_arable'
           control={control}
           render={({ field }) => (
             <Input
               {...field}
-              id='vegetationArableInput'
+              id='vegetation_arableInput'
               type='text'
               as={Cleave}
-              {...register('vegetationArable', { required: 'Digite a área de vegetação' })}
-              onChange={e => setValue('vegetationArable', e.target.value)}
+              {...register('vegetation_arable', { required: 'Digite a área de vegetação' })}
+              onChange={e => setValue('vegetation_arable', e.target.value)}
               options={{
                 delimiters: [],
                 blocks: [10],
@@ -85,7 +85,7 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
             />
           )}
         />
-        {errors?.vegetationArable?.message && <FormErrorMessage>{errors.vegetationArable.message}</FormErrorMessage>}
+        {errors?.vegetation_arable?.message && <FormErrorMessage>{errors.vegetation_arable.message}</FormErrorMessage>}
       </FormLabel>
 
 

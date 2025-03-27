@@ -2,7 +2,7 @@ import api from '../../services/api';
 
 export function getDashboard() {
   return function (dispatch: any) {
-    api.get(`/producer`)
+    api.get(`/producers`)
       .then(res => {
         dispatch({
           type: 'GET_DASHBOARD',

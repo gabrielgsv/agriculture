@@ -1,3 +1,7 @@
+<p>Login Test</p>
+<p>email: user@email.com</p>
+<p>password: user123</p>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

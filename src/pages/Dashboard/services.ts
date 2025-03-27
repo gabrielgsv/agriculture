@@ -1,8 +1,8 @@
 export function getTotalArea(data: any[]) {
-  if (data) {
+  if (data && data.length > 1) {
     return data.reduce(function (previus: any, current: any) {
       return {
-        totalHectares: parseInt(previus.totalHectares) + parseInt(current.totalHectares)
+        total_hectares: parseInt(previus.total_hectares) + parseInt(current.total_hectares)
       }
     })
   }

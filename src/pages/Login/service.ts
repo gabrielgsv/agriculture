@@ -14,7 +14,7 @@ export function login(
       password,
     })
     .then((res: any) => {
-      sessionStorage.setItem(Auth, res.data.accessToken);
+      sessionStorage.setItem(Auth, res.data.access_token);
       callBack();
       navigate("/");
     })

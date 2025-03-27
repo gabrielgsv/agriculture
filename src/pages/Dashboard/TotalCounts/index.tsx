@@ -14,7 +14,7 @@ const TotalCounts = () => {
   useEffect(() => {
     if (selector) {
       const area = getTotalArea(selector.dashboardData);
-      setTotalArea(area?.totalHectares);
+      setTotalArea(area?.total_hectares);
       setTotalFarms(selector.totalFarms);
     }
   }, [selector])
