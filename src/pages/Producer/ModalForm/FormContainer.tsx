@@ -18,12 +18,12 @@ export interface ICity {
 }
 export interface IFormInput {
   id?: string;
-  cpf: number | null;
-  cnpj: number | null;
+  cpf: string;
+  cnpj: string;
   name: string;
   farm_name: string;
-  uf: number;
-  city: number;
+  uf: string;
+  city: number | null;
   total_hectares: number | null;
   arable_hectares: number| null;
   vegetation_arable: number | null;
@@ -38,9 +38,11 @@ const FormContainer = ({ onClose }: typeProps) => {
   const [cities, setCities] = useState<ICity[]>([{ id: '', nome: '' }]);
   const { register, setValue, watch, reset, handleSubmit, control, formState: { errors, isValid, isSubmitted } } = useForm<IFormInput>({
     defaultValues: {
-      cpf: null,
-      cnpj: null,
+      cpf: '',
+      cnpj: '',
       name: '',
+      uf: '',
+      city: null,
       farm_name: '',
       total_hectares: null,
       arable_hectares: null,
@@ -75,15 +77,15 @@ const FormContainer = ({ onClose }: typeProps) => {
   }, [watch('uf')])
 
   const onSubmit = (data: IFormInput) => {
-    console.log("data", data);
+    // console.log("data", data);
 
-    // if (data.id) {
-    //   validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
-    //     updateProducer(data, toast, onClose, dispatch);
-    // } else {
-    //   validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
-    //     createProducer(data, toast, onClose, dispatch);
-    // }
+    if (data.id) {
+      validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
+        updateProducer(data, toast, onClose, dispatch);
+    } else {
+      validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
+        createProducer(data, toast, onClose, dispatch);
+    }
   };
 
   return (
