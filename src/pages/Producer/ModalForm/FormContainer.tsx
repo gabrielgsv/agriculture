@@ -18,15 +18,15 @@ export interface ICity {
 }
 export interface IFormInput {
   id?: string;
-  cpf: string;
-  cnpj: string
+  cpf: number | null;
+  cnpj: number | null;
   name: string;
   farm_name: string;
-  uf: string;
-  city: string;
-  total_hectares: string;
-  arable_hectares: string;
-  vegetation_arable: string;
+  uf: number;
+  city: number;
+  total_hectares: number | null;
+  arable_hectares: number| null;
+  vegetation_arable: number | null;
   plantation_crops: any[];
 }
 
@@ -38,13 +38,13 @@ const FormContainer = ({ onClose }: typeProps) => {
   const [cities, setCities] = useState<ICity[]>([{ id: '', nome: '' }]);
   const { register, setValue, watch, reset, handleSubmit, control, formState: { errors, isValid, isSubmitted } } = useForm<IFormInput>({
     defaultValues: {
-      cpf: '',
-      cnpj: '',
+      cpf: null,
+      cnpj: null,
       name: '',
       farm_name: '',
-      total_hectares: '',
-      arable_hectares: '',
-      vegetation_arable: '',
+      total_hectares: null,
+      arable_hectares: null,
+      vegetation_arable: null,
       plantation_crops: [],
     },
   })
@@ -56,7 +56,6 @@ const FormContainer = ({ onClose }: typeProps) => {
       return state?.Producer?.editProducer && state?.Producer?.editProducer[0];
     }
   )
-
 
   useEffect(() => {
     if (editProducer) {
@@ -76,13 +75,15 @@ const FormContainer = ({ onClose }: typeProps) => {
   }, [watch('uf')])
 
   const onSubmit = (data: IFormInput) => {
-    if (data.id) {
-      validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
-        updateProducer(data, toast, onClose, dispatch);
-    } else {
-      validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
-        createProducer(data, toast, onClose, dispatch);
-    }
+    console.log("data", data);
+
+    // if (data.id) {
+    //   validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
+    //     updateProducer(data, toast, onClose, dispatch);
+    // } else {
+    //   validateCpfCnpj(watch('cpf'), watch('cnpj'), toast) &&
+    //     createProducer(data, toast, onClose, dispatch);
+    // }
   };
 
   return (

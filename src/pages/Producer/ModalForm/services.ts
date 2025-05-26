@@ -4,6 +4,7 @@ import { IFormInput } from './FormContainer'
 import { cpf as cpfValidator, cnpj as cnpjValidator } from 'cpf-cnpj-validator'
 import { Dispatch } from 'react';
 import { getProducers } from '../../../store/actions/producer';
+import { UserId } from '../../../config/storage';
 
 interface IBGECityResponse {
   id: string,
@@ -54,9 +55,9 @@ export function validateCpfCnpj(cpf: string, cnpj: string, toast: any) {
 }
 
 export function validateArea(
-  total_hectares: string,
-  arable_hectares: string,
-  vegetation_arable: string,
+  total_hectares: number,
+  arable_hectares: number,
+  vegetation_arable: number,
   toast: any
 ) {
   const sum = Number(arable_hectares) + Number(vegetation_arable)
@@ -80,9 +81,15 @@ export function createProducer(
   onClose: () => void,
   dispatch: Dispatch<any>,
 ) {
-  const isValid = validateArea(data.total_hectares, data.arable_hectares, data.vegetation_arable, toast)
+  const isValid = validateArea(data.total_hectares as number, data.arable_hectares as number, data.vegetation_arable as number, toast)
   if (isValid) {
-    api.post('/producers', data)
+    const newData = { 
+      ...data, 
+      cpf: parseInt((data?.cpf as string).replace(/[^0-9]/g, '')), 
+      cnpj: parseInt((data.cnpj as string).replace(/[^0-9]/g, '')),
+      city: parseInt((data.city as string).replace(/[^0-9]/g, '')) 
+    };
+    api.post('/producers', newData)
       .then(data => {
         toast({
           title: 'Cadastro realizado com sucesso!',
@@ -112,7 +119,7 @@ export function updateProducer(
   onClose: () => void,
   dispatch: Dispatch<any>,
 ) {
-  const isValid = validateArea(data.total_hectares, data.arable_hectares, data.vegetation_arable, toast)
+  const isValid = validateArea(data.total_hectares as number, data.arable_hectares as number, data.vegetation_arable as number, toast)
   if (isValid) {
     api.put(`/producers/${data.id}`, data)
       .then(data => {
@@ -164,5 +171,17 @@ export function deleteProducer(
         duration: 9000,
         isClosable: true,
       })
+    })
+}
+
+export function getPlantedCrops(setPlantedCrops: (crops: any) => void) {
+  const user_id = sessionStorage.getItem(UserId || "")
+
+  return api.get(`/plantation-crops?user_id=${user_id}`)
+    .then(data => {
+      setPlantedCrops(data.data)
+    })
+    .catch(err => {
+      console.error('err', err)
     })
 }

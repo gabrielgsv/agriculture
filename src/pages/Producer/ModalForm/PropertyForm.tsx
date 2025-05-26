@@ -22,10 +22,10 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
             <Input
               {...field}
               id='total_hectaresInput'
-              type='text'
+              type='number'
               as={Cleave}
               {...register('total_hectares', { required: 'Digite o total de hectares' })}
-              onChange={e => setValue('total_hectares', e.target.value)}
+              onChange={e => setValue('total_hectares', Number(e.target.value))}
               options={{
                 delimiters: [],
                 blocks: [10],
@@ -47,10 +47,10 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
             <Input
               {...field}
               id='arable_hectaresInput'
-              type='text'
+              type='number'
               as={Cleave}
               {...register('arable_hectares', { required: 'Digite a área agricultável' })}
-              onChange={e => setValue('arable_hectares', e.target.value)}
+              onChange={e => setValue('arable_hectares', Number(e.target.value))}
               options={{
                 delimiters: [],
                 blocks: [10],
@@ -72,10 +72,10 @@ const PropertyForm = ({ control, setValue, register, errors }: typeProps) => {
             <Input
               {...field}
               id='vegetation_arableInput'
-              type='text'
+              type='number'
               as={Cleave}
               {...register('vegetation_arable', { required: 'Digite a área de vegetação' })}
-              onChange={e => setValue('vegetation_arable', e.target.value)}
+              onChange={e => setValue('vegetation_arable', Number(e.target.value))}
               options={{
                 delimiters: [],
                 blocks: [10],
